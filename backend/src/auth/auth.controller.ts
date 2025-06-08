@@ -67,8 +67,6 @@ export class AuthController {
   @ApiOperation({ summary: 'Logout user' })
   @ApiResponse({ status: 200, description: 'User successfully logged out' })
   async logout() {
-    // For JWT, logout is handled on the client by deleting the token.
-    // Optionally, you could implement token blacklisting here.
     return { message: 'Logged out successfully' };
   }
 }

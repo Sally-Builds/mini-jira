@@ -1,4 +1,4 @@
-import { Controller, Get, Param, UseGuards } from '@nestjs/common';
+import { Controller, Get, UseGuards } from '@nestjs/common';
 import { ApiBearerAuth, ApiTags, ApiOperation } from '@nestjs/swagger';
 import { UserService } from './user.service';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
@@ -23,9 +23,9 @@ export class UserController {
     };
   }
 
-  @Get(':id')
-  @ApiOperation({ summary: 'Get user by ID' })
-  findOne(@Param('id') id: string) {
-    return this.userService.findById(id);
-  }
+  // @Get(':id')
+  // @ApiOperation({ summary: 'Get user by ID' })
+  // findOne(@Param('id') id: string) {
+  //   return this.userService.findById(id);
+  // }
 }

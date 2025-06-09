@@ -11,7 +11,7 @@ export const getDatabaseConfig = (
   password: configService.get('DB_PASSWORD', 'yourpassword'),
   database: configService.get('DB_NAME', 'taskmanagement'),
   entities: [__dirname + '/../**/*.entity{.ts,.js}'],
-  synchronize: configService.get('NODE_ENV') !== 'production',
+  synchronize: true,
   logging: configService.get('NODE_ENV') === 'development',
   // url: configService.get('DB_URL', ''),
   ssl:

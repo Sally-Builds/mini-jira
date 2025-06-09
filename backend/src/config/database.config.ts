@@ -13,4 +13,9 @@ export const getDatabaseConfig = (
   entities: [__dirname + '/../**/*.entity{.ts,.js}'],
   synchronize: configService.get('NODE_ENV') !== 'production',
   logging: configService.get('NODE_ENV') === 'development',
+  // url: configService.get('DB_URL', ''),
+  ssl:
+    configService.get('NODE_ENV') === 'production'
+      ? { rejectUnauthorized: false }
+      : false,
 });

@@ -11,6 +11,12 @@ TaskFlow is a full-stack task management application inspired by Jira, designed 
 - **Responsive UI:** Built with React, Vite, and Tailwind CSS.
 - **RESTful API:** Powered by NestJS and TypeORM.
 
+## Live Demo
+
+- **Frontend Application:** [https://task-flow-vext.onrender.com/](https://task-flow-vext.onrender.com/)
+- **Backend API Base URL:** [https://mini-jira-ccoj.onrender.com/api/v1](https://mini-jira-ccoj.onrender.com/api/v1)
+- **API Documentation:** [https://mini-jira-ccoj.onrender.com/api/docs](https://mini-jira-ccoj.onrender.com/api/docs)
+
 ## Application Structure
 
 - `backend/` — NestJS API server (TypeScript, PostgreSQL, JWT Auth)

@@ -2,6 +2,12 @@ import React from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { Button } from "./ui/button";
 import { LogOut, User, CheckSquare } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "./ui/dropdown-menu";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -26,23 +32,27 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
             {user && (
               <div className="flex flex-row sm:items-center justify-end sm:space-x-4 gap-2 sm:gap-0">
-                <div className="flex items-center space-x-2 px-2 sm:px-3 py-1.5 sm:py-2 bg-white/50 rounded-lg order-1 sm:order-none overflow-hidden">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 shrink-0 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center">
-                    <User className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-white" />
-                  </div>
-                  <span className="text-xs sm:text-sm font-medium text-gray-700 truncate">
-                    {user.firstName} {user.lastName}
-                  </span>
-                </div>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={logout}
-                  className="h-[34px] sm:h-9 bg-white/50 hover:bg-white/70 border-white/30 px-2 sm:px-3 order-2 sm:order-none"
-                >
-                  <LogOut className="h-4 w-4 sm:mr-2" />
-                  <span className="hidden sm:inline">Logout</span>
-                </Button>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <div className="flex items-center space-x-2 px-2 sm:px-3 py-1.5 sm:py-2 bg-white/50 rounded-lg order-1 sm:order-none overflow-hidden cursor-pointer hover:bg-white/70 transition-colors">
+                      <div className="w-7 h-7 sm:w-8 sm:h-8 shrink-0 bg-gradient-to-r from-purple-500 to-blue-500 rounded-full flex items-center justify-center">
+                        <User className="h-3.5 w-3.5 sm:h-4 sm:w-4 text-white" />
+                      </div>
+                      <span className="text-xs sm:text-sm font-medium text-gray-700 truncate">
+                        {user.firstName} {user.lastName}
+                      </span>
+                    </div>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-48">
+                    <DropdownMenuItem
+                      onClick={logout}
+                      className="cursor-pointer"
+                    >
+                      <LogOut className="h-4 w-4 mr-2" />
+                      <span>Logout</span>
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
               </div>
             )}
           </div>

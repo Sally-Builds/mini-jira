@@ -92,6 +92,8 @@
 
   body {
     @apply bg-gradient-to-br from-slate-50 to-blue-50 text-foreground min-h-screen;
+    padding: 0;
+    margin: 0;
   }
 }
 

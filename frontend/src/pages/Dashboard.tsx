@@ -83,19 +83,19 @@ const Dashboard: React.FC = () => {
   return (
     <Layout>
       <div className="space-y-6">
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 px-2 sm:px-0">
           <div>
-            <h1 className="text-3xl font-bold text-foreground">
+            <h1 className="text-2xl sm:text-3xl font-bold text-foreground">
               Project Dashboard
             </h1>
-            <p className="text-muted-foreground mt-1">
+            <p className="text-muted-foreground mt-1 text-sm sm:text-base">
               Manage your tasks and track project progress
             </p>
           </div>
 
           <Button
             onClick={openCreateModal}
-            className="flex items-center space-x-2"
+            className="flex items-center space-x-2 w-full sm:w-auto"
           >
             <Plus className="h-4 w-4" />
             <span>New Task</span>
@@ -104,7 +104,7 @@ const Dashboard: React.FC = () => {
 
         <TaskFilters filters={filters} onFiltersChange={setFilters} />
 
-        <div className="grid lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
           {/* To Do Column */}
           <div className="space-y-4">
             <div className="flex items-center justify-between">

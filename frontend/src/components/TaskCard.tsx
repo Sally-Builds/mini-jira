@@ -56,13 +56,13 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, onEdit, onDelete }) => {
   };
 
   return (
-    <Card className="hover:shadow-md transition-shadow duration-200">
+    <Card className="hover:shadow-md transition-shadow duration-200 w-full max-w-full">
       <CardHeader className="pb-3">
-        <div className="flex items-start justify-between">
-          <CardTitle className="text-lg font-semibold line-clamp-2">
+        <div className="flex flex-col xs:flex-row xs:items-start xs:justify-between gap-2 xs:gap-0">
+          <CardTitle className="text-base sm:text-lg font-semibold line-clamp-2 break-words max-w-full">
             {task.title}
           </CardTitle>
-          <div className="flex space-x-1 ml-2">
+          <div className="flex space-x-1 ml-0 xs:ml-2">
             <Button
               variant="ghost"
               size="sm"
@@ -84,7 +84,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ task, onEdit, onDelete }) => {
       </CardHeader>
 
       <CardContent className="space-y-4">
-        <p className="text-sm text-muted-foreground line-clamp-3">
+        <p className="text-xs sm:text-sm text-muted-foreground line-clamp-3 break-words">
           {task.description}
         </p>
 

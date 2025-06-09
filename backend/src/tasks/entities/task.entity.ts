@@ -7,8 +7,8 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 import { User } from '../../users/entities/user.entity';
-import { TaskStatus } from 'src/common/enums/task-status.enum';
-import { TaskPriority } from 'src/common/enums/task-priority.enum';
+import { TaskStatus } from '../../common/enums/task-status.enum';
+import { TaskPriority } from '../../common/enums/task-priority.enum';
 
 @Entity('tasks')
 export class Task {

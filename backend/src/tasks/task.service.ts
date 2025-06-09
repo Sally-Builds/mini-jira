@@ -7,7 +7,7 @@ import { CreateTaskDto } from './dto/create-task.dto';
 import { UpdateTaskDto } from './dto/update-task.dto';
 import { FilterTaskDto } from './dto/filter-task.dto';
 import { TaskStatus } from '../common/enums/task-status.enum';
-import { TaskPriority } from 'src/common/enums/task-priority.enum';
+import { TaskPriority } from '../common/enums/task-priority.enum';
 
 @Injectable()
 export class TaskService {
@@ -65,33 +65,6 @@ export class TaskService {
   async remove(id: string, user: User): Promise<void> {
     const task = await this.findOne(id, user);
     await this.taskRepository.remove(task);
-  }
-
-  async getTaskStatistics(user: User): Promise<any> {
-    const stats = await this.taskRepository
-      .createQueryBuilder('task')
-      .select('task.status, COUNT(*) as count')
-      .where('task.assigneeId = :userId', { userId: user.id })
-      .groupBy('task.status')
-      .getRawMany();
-
-    const priorityStats = await this.taskRepository
-      .createQueryBuilder('task')
-      .select('task.priority, COUNT(*) as count')
-      .where('task.assigneeId = :userId', { userId: user.id })
-      .groupBy('task.priority')
-      .getRawMany();
-
-    return {
-      byStatus: stats.reduce((acc, item) => {
-        acc[item.task_status] = parseInt(item.count);
-        return acc;
-      }, {}),
-      byPriority: priorityStats.reduce((acc, item) => {
-        acc[item.task_priority] = parseInt(item.count);
-        return acc;
-      }, {}),
-    };
   }
 
   async updateStatus(
